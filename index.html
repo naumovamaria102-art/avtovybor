@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Автовыбор — Проверь б/у авто за 15 минут. Скачать приложение Android.</title>
 <meta name="description" content="Автовыбор — Android-приложение для проверки автомобилей с пробегом. База слабых мест 150+ моделей, осмотр с экспертом, юридическая проверка ГИБДД. Бесплатно.">
 <meta name="keywords" content="проверка автомобиля с пробегом, как проверить авто перед покупкой, слабые места автомобилей, приложение для проверки авто, автоподбор, автовыбор скачать">
@@ -25,7 +25,7 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:"Mulish",sans-serif;background:var(--dark);color:var(--w);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{font-family:"Mulish",sans-serif;background:var(--dark);color:var(--w);overflow-x:hidden;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:15px 5%;background:rgba(13,15,13,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
@@ -40,7 +40,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .nav-cta:hover{background:var(--gd)!important;transform:scale(1.04)}
 
 /* BUTTONS */
-.btn{display:inline-flex;align-items:center;gap:9px;padding:14px 28px;border-radius:50px;font-family:"Unbounded",sans-serif;font-size:0.8rem;font-weight:700;text-decoration:none;transition:all .2s;border:none;cursor:pointer;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:14px 28px;border-radius:50px;font-family:"Unbounded",sans-serif;font-size:0.8rem;font-weight:700;text-decoration:none;transition:all .2s;border:none;cursor:pointer;white-space:nowrap;min-height:44px}
 .btn-green{background:var(--g);color:#0d0f0d}
 .btn-green:hover{background:var(--gd);transform:translateY(-2px);box-shadow:0 10px 28px rgba(29,185,84,0.3)}
 .btn-ghost{background:rgba(255,255,255,0.07);color:var(--w);border:1px solid var(--border)}
@@ -255,21 +255,128 @@ footer{border-top:1px solid var(--border);padding:42px 5% 26px}
 .rv.vis{opacity:1;transform:translateY(0)}
 .rv:nth-child(2){transition-delay:.07s}.rv:nth-child(3){transition-delay:.14s}.rv:nth-child(4){transition-delay:.21s}
 
+/* TABLET */
 @media(max-width:960px){
-  .hero-grid,.tool-panel,.tbank-grid,.school-inner,.final-inner{grid-template-columns:1fr;direction:ltr}
+  .hero-grid,.tbank-grid,.school-inner,.final-inner{grid-template-columns:1fr;direction:ltr}
   .hero-phone-col{display:none}
-  .steps{flex-direction:column}
+  .steps{flex-direction:column;gap:8px}
   .step-arr{display:none}
   .pain-grid{grid-template-columns:1fr}
   .stats-in{grid-template-columns:1fr 1fr}
   .foot-in{grid-template-columns:1fr 1fr}
   .expert-screens-row{flex-direction:column}
+  .tool-panel{grid-template-columns:1fr!important;direction:ltr}
+  .tool-panel.active{display:flex;flex-direction:column;gap:28px}
+  .tbank-grid{gap:28px}
+  .school-inner{gap:28px}
+  .final-inner{gap:32px}
+  .final-visual{flex-direction:row;justify-content:center}
+  .tools-nav{flex-wrap:wrap}
+  .tools-nav-btn{flex:none;width:calc(33% - 4px);font-size:0.72rem;padding:10px 4px}
 }
+
+/* MOBILE */
 @media(max-width:640px){
+  /* nav */
+  nav{padding:12px 4%}
+  .nav-links li:not(.nav-school-li):not(:last-child){display:none}
+  .nav-links{gap:8px}
+  .nav-school{padding:6px 10px;font-size:0.72rem!important}
+  .nav-cta{padding:7px 13px;font-size:0.72rem!important}
+  .nav-logo{font-size:0.9rem}
+
+  /* hero */
+  .hero{padding:90px 4% 52px}
+  .hero h1{font-size:clamp(1.6rem,7vw,2.4rem)}
+  .hero-sub{font-size:0.88rem}
+  .hero-btns{flex-direction:column;gap:8px}
+  .hero-btns .btn{width:100%;justify-content:center;padding:13px 20px;font-size:0.75rem}
+
+  /* stats */
+  .stats{padding:18px 4%}
+  .stats-in{grid-template-columns:1fr;gap:12px}
+  .st-v{font-size:1.4rem}
+
+  /* sections */
+  .sec{padding:52px 4%}
+  .sec-h{font-size:clamp(1.3rem,5.5vw,1.8rem)}
+  .sec-sub{font-size:0.85rem}
+
+  /* pain */
+  .pain-grid{grid-template-columns:1fr;gap:12px;margin-top:28px}
+  .pn{font-size:2.8rem}
+  .pain-card{padding:20px}
+
+  /* steps */
+  .steps{flex-direction:column;gap:8px;margin-top:24px}
+  .step{padding:18px 16px;text-align:left;display:flex;flex-direction:row;align-items:flex-start;gap:12px}
+  .step-ico{margin:0;flex-shrink:0;width:42px;height:42px}
+  .step-n{position:static;margin-left:auto}
+  .step h3{font-size:0.85rem}
+  .step p{font-size:0.75rem}
+  .result-box{padding:18px;flex-direction:column;gap:12px;margin-top:16px}
+  .result-box h3{font-size:0.95rem}
+
+  /* tools */
+  .tools-nav{flex-direction:column;gap:3px}
+  .tools-nav-btn{width:100%;text-align:left;padding:11px 14px;font-size:0.82rem;border-radius:10px}
+  .tool-panel.active{display:flex;flex-direction:column;gap:24px}
+  .tool-phone-carousel,.expert-screens{width:100%;max-width:280px;margin:0 auto}
+  .carousel-wrap{width:100%}
+  .tool-text h3{font-size:1.1rem}
+  .tool-text p{font-size:0.82rem}
+  .cta-inline{flex-direction:column;align-items:flex-start;padding:20px;gap:14px}
+  .cta-inline .btn{width:100%;justify-content:center}
+
+  /* expert slides */
+  .expert-screens-row{flex-direction:column}
+  .score-highlight{padding:14px}
+  .report-mini{padding:10px}
+  .report-item{font-size:0.68rem}
+
+  /* online phone mock */
+  .ss-shell,.ss-screen{border-radius:18px}
+  .online-phone-mock .op-body{padding:6px}
+  .online-phone-mock .op-section-label{font-size:0.45rem}
+  .online-phone-mock .op-item-text{font-size:0.45rem}
+  .online-phone-mock .op-item{padding:5px 8px}
+  .online-phone-mock .op-item-icon{width:14px;height:14px;font-size:0.45rem}
+
+  /* tbank */
+  .tbank-grid{flex-direction:column;display:flex;gap:20px}
+  .tbank-visual{padding:20px}
+  .tbank-offer{padding:13px 14px}
+  .to-ico{width:36px;height:36px;font-size:0.9rem}
+
+  /* school */
+  .school-inner{grid-template-columns:1fr;gap:20px}
+  .school-feats{gap:8px}
+  .sf{padding:10px}
+  .price-val{font-size:1.4rem}
+
+  /* final cta */
+  .final-inner{grid-template-columns:1fr;gap:28px}
+  .final-visual{flex-direction:column;align-items:center;gap:16px}
+  .final-brand{font-size:1.5rem}
+  .store-stack{max-width:100%}
+  .store-btn{padding:11px 16px}
+
+  /* footer */
+  .foot-in{grid-template-columns:1fr;gap:20px}
+  .foot-col ul{gap:6px}
+  .foot-bot{flex-direction:column;gap:4px;text-align:center}
+
+  /* QR */
+  #qrcode{width:100px;height:100px}
+  .qr-label{font-size:0.65rem;max-width:100px}
+}
+
+/* SMALL PHONES */
+@media(max-width:380px){
   .nav-links li.nav-school-li{display:none}
-  .nav-links{gap:12px}
-  .foot-in{grid-template-columns:1fr}
-  .cta-inline{flex-direction:column;align-items:flex-start}
+  .hero h1{font-size:1.5rem}
+  .tools-nav-btn{font-size:0.75rem}
+  .sec-h{font-size:1.25rem}
 }
 
 /* Expert carousel */
@@ -561,7 +668,6 @@ footer{border-top:1px solid var(--border);padding:42px 5% 26px}
         </div>
       </div>
 
-      z/HXhcdav7SH5K+stSaXtmoIuo9MssXGMiQ22uSsqSlQyArakjPmPCgur88js7/ZvU3ws/wAdPzyOzv8AZvU3ws/x1VX5nuuf2p0t9+5/BT8z3XP7U6W+/c/goLV/PI7O/wBm9TfCz/HT88js7/ZvU3ws/wAdVV+Z7rn9qdLffufwU/M91z+1Olvv3P4KC1fzyOzv9m9TfCz/AB0/PI7O/wBm9TfCz/HVVfme65/anS337n8FPzPdc/tTpb79z+CgtX88js7/AGb1N8LP8dPzyOzv9m9TfCz/AB1VX5nuuf2p0t9+5/BT8z3XP7U6W+/c/goLV/PI7O/2b1N8LP8AHT88js7/AGb1N8LP8dVV+Z7rn9qdLffufwVytX/kr6y03pe56glaj0y8xboy5DjaJKwpSUjJCdyQM+Q8aC6vzyOzv9m9TfCz/HT88js7/ZvU3ws/x14XPWvyg90/nkdnf7N6m+Fn+On55HZ3+zepvhZ/jrwtSg90/nkdnf7N6m+Fn+On55HZ3+zepvhZ/jrwtSg90/nkdnf7N6m+Fn+On55HZ3+zepvhZ/jrwtSg90/nkdnf7N6m+Fn+On55HZ3+zepvhZ/jrwtSg90/nkdnf7N6m+Fn+On55HZ3+zepvhZ/jrwtSg90/nkdnf7N6m+Fn+On55HZ3+zepvhZ/jrwtX6B7OVB/Qrs1/KY0hr3W9s0nZdN6iEye7sSt1DWxtIBUpSsKJwACaVx/wAhXsakaVsznaDqSGti73Rnh2+O6nCo8Y4JWQeYUvA+pIHmaUHqUjNeWvyhfyT7ZqqVK1H2fPR7PdnlFyRb3fRiyFHmSgj+bUT7Ck+zrSlB5B1r2U9omjZDjeodIXaK22TmQmOXGCB4hxGU4+2oWoAdKUoPylKUClKUClKUClKUClKUH6ORzWRMh9CQlDziUjoAsgUpQfvepP8A4h74zTvUn/xD3xmlKB3qT/4h74zTvUn/AMQ98ZpSgd6k/wDiHvjNO9Sf/EPfGaUoHepP/iHvjNO9Sf8AxD3xmlKB3qT/AOIe+M1+KkPrSUrecUk9QVkilKDGeZzX5SlApSlApSlApSlApSlAr9AB60pQTTRXZT2iaykNt6e0hdpSHCMSFRy2wAfEuLwnH216+/J6/JPtmlZUXUfaC9HvF2ZUHI9va9KLHUOYKif5xQPsCR7etKUHqUDFKUoP/9k=" alt="Вопрос Автоэксперта">
               </div></div>
             </div>
           </div>
