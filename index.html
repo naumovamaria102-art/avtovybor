@@ -155,9 +155,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .tool-phone-carousel{display:flex;justify-content:center}
 .carousel-wrap{position:relative;width:210px}
 .carousel-inner{position:relative}
-.carousel-slide{position:absolute;top:0;left:0;width:100%;transition:opacity .5s ease,transform .5s ease;opacity:0;transform:translateX(30px)}
-.carousel-slide.active{position:relative;opacity:1;transform:translateX(0)}
-.carousel-slide.prev{opacity:0;transform:translateX(-30px)}
+.carousel-slide{display:none}
+.carousel-slide.active{display:block;animation:fadeUp .35s ease both}
 .carousel-dots{display:flex;justify-content:center;gap:6px;margin-top:14px}
 .carousel-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.2);cursor:pointer;transition:background .2s,transform .2s}
 .carousel-dot.active{background:var(--g);transform:scale(1.3)}
